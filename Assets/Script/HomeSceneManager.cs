@@ -25,7 +25,7 @@ public class HomeSceneManager : Manager
         InvisibleCalender();
         Director.GetComponent<GameDirector>().FadeOut();
         CalenderInitialize();
-        //Invoke("CalenderInitialize",0.1f);
+        GameDirector.ResetAllData();
     }
 
     // Update is called once per frame

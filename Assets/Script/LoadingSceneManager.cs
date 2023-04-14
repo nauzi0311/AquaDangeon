@@ -7,7 +7,10 @@ using TMPro;
 public class LoadingSceneManager : Manager
 {
     [SerializeField] GameObject Loading;
-    public bool IsStop;
+    
+    [SerializeField] Canvas RecommendCanvas;
+    bool IsStop;
+    int user_answer = -2;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +25,7 @@ public class LoadingSceneManager : Manager
     }
 
     IEnumerator ViewProcess(){
-        bool IsStop = false;
+        IsStop = false;
         TextMeshProUGUI Text = Loading.GetComponent<TextMeshProUGUI>();
         while(!IsStop){
             string target = Text.text;
@@ -70,6 +73,13 @@ public class LoadingSceneManager : Manager
             int _count = GameDirector.GetQuestionsCount();
             if(GameDirector.correct_list[_count-1] || GameDirector.correct_list[_count-2]){
                 GameDirector.OneRankUP();
+                int _rand = Random.Range(1,11);
+                if(_rand <= 5){
+                    ViewRecommendCanvas();
+                    yield return new WaitUntil(() => {return user_answer == -2 ? false : true;});
+                    POSTRecommend(GameDirector.GetTimes(),GameDirector.GetRank());
+                    user_answer = -2;
+                }
             }else{
                 GameDirector.OneRankDown();
             }
@@ -86,5 +96,30 @@ public class LoadingSceneManager : Manager
             yield return new WaitForSeconds(1.0f);
             StartCoroutine(GameDirector.SceneMove("DetailScene","ResultScene"));
         }
+    }
+    void ViewRecommendCanvas(){
+        RecommendCanvas.sortingOrder = 2;
+    }
+    public void POSTRecommend(int times,int rank){
+        string recommend = null;
+        if(user_answer == -1){
+            recommend = "Too hard";
+        }else if(user_answer == 0){
+            recommend = "Match";
+        }else{
+            //user_answer == 1
+            recommend = "Too easy";
+        }
+        RecommendData _data = new RecommendData();
+        _data.device = PlayerPrefs.GetString("UUID");
+        _data.times = times;
+        _data.course = "soft2";
+        _data.rank = rank;
+        _data.recommend = recommend;
+        string json = RecommendData.Serialize<RecommendData>(_data);
+        StartCoroutine(GameDirector.WebRequestPOST("quest/recommend",json));
+    }
+    public void SetUserAnswer(int _answer){
+        user_answer = _answer;
     }
 }

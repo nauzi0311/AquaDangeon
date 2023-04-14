@@ -219,3 +219,12 @@ public class ScoreData : JsonSerializable{
         title_list = _data.title_list;
     }
 }
+
+[System.Serializable]
+public class RecommendData : JsonSerializable{
+    public string device;
+    public string course;
+    public int times;
+    public int rank;
+    public string recommend;
+}

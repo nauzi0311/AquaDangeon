@@ -9,6 +9,7 @@ public class DungeonSelectSceneManager : Manager
     void Start()
     {
         Director.GetComponent<GameDirector>().FadeOut();
+        GameDirector.ResetDetailData();
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class DungeonSelectSceneManager : Manager
     }
 
     public IEnumerator GetQuestions(int times){
+        GameDirector.SetTimes(times);
         string device = PlayerPrefs.GetString("UUID");
         string course = "soft2";
         RequestData _data = new RequestData(device, course,times);

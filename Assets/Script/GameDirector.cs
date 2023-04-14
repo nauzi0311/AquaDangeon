@@ -11,18 +11,20 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     public Fade fade;
     private float _fade_time = 1f;
+    private static string URL = "http://localhost:3000/soft2/";
     private static UserData userdata = new UserData();
-    private static QuestionDataSet questions = new QuestionDataSet();
-    private static QuestionData detail = new QuestionData();
     private static ScoreData list = new ScoreData();
     private static RankingData ranking = new RankingData();
     private static ConfigData config = new ConfigData();
-    private static string URL = "http://localhost:3000/soft2/";
     private static string response;
     private static string PreSceneName;
+    //NEED RESET
+    private static QuestionData detail = new QuestionData();
+    private static QuestionDataSet questions = new QuestionDataSet();
     private static bool IsQuestion = false,IsDetail = false;
     private static int QuestionCount = 0;
     private static int now_rank = 3;
+    private static int now_times = 0;
     public static List<int> id_list = new List<int>();
     public static List<bool> correct_list = new List<bool>();
     public static List<int> second_list = new List<int>();
@@ -40,6 +42,7 @@ public class GameDirector : MonoBehaviour
     {
         
     }
+    //Loading Methods
     public static void OneRankUP(){
         now_rank++;
     }
@@ -47,6 +50,15 @@ public class GameDirector : MonoBehaviour
         if(now_rank > 1){
             now_rank--;
         }
+    }
+    public static int GetRank(){
+        return now_rank;
+    }
+    public static int GetTimes(){
+        return now_times;
+    }
+    public static void SetTimes(int _time){
+        now_times = _time;
     }
     //Index Methods
     public static void SetConfigData(ConfigData _data){
@@ -107,6 +119,10 @@ public class GameDirector : MonoBehaviour
     public static void SetScoreData(ScoreData _data){
         list.SetData(_data);
     }
+    public static void ResetDetailData(){
+        detail = new QuestionData();
+        IsDetail = false;
+    }
     public static ScoreData GetScoreData(){
         return list;
     }
@@ -142,6 +158,22 @@ public class GameDirector : MonoBehaviour
         "\nused_question : " + string.Join(",",questions.question_used.Select(n => n.ToString())) + 
         "\nexp_list : " + string.Join(",",exp_list.Select(n => n.ToString())) + 
         "\npoint_list : " + string.Join(",",point_list.Select(n => n.ToString())));
+    }
+    //Home Methods
+    public static void ResetAllData(){
+        questions = new QuestionDataSet();
+        detail = new QuestionData();
+        IsQuestion = false;
+        IsDetail = false;
+        QuestionCount = 0;
+        now_rank = 3;
+        now_times = 0;
+        id_list = new List<int>();
+        correct_list = new List<bool>();
+        second_list = new List<int>();
+        user_answer = new List<int>();
+        exp_list = new List<int>();
+        point_list = new List<int>();
     }
     //General Methods
     public static string GetPreSceneName(){
