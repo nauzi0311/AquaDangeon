@@ -277,6 +277,9 @@ public class ResultSceneManager : Manager
         _data.badge.Sort();
         bool AC_badge = AllCollectBadge();
         new_badge = f_badge || l_badge || qc_badge || log_badge || AC_badge;
+        if(new_badge){
+            StartCoroutine(NewBadgeNotion());
+        }
         GameDirector.SetUserData(_data);
         return true;
     }

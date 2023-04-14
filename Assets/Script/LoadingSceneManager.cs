@@ -73,12 +73,20 @@ public class LoadingSceneManager : Manager
             int _count = GameDirector.GetQuestionsCount();
             if(GameDirector.correct_list[_count-1] || GameDirector.correct_list[_count-2]){
                 GameDirector.OneRankUP();
-                int _rand = Random.Range(1,11);
-                if(_rand <= 5){
-                    ViewRecommendCanvas();
-                    yield return new WaitUntil(() => {return user_answer == -2 ? false : true;});
-                    POSTRecommend(GameDirector.GetTimes(),GameDirector.GetRank());
-                    user_answer = -2;
+                if(_count == 4){
+                    int _rand = Random.Range(1,11);
+                    if(_rand <= 5){
+                        ViewRecommendCanvas();
+                        yield return new WaitUntil(() => {return user_answer == -2 ? false : true;});
+                        POSTRecommend(GameDirector.GetTimes(),GameDirector.GetRank());
+                        if(user_answer == -1){
+                            GameDirector.OneRankDown();
+                            GameDirector.OneRankDown();
+                        }
+                        user_answer = -2;
+                    }
+                    StartCoroutine(GameDirector.SceneMove("DungeonScene"));
+                    yield break;
                 }
             }else{
                 GameDirector.OneRankDown();
