@@ -26,6 +26,7 @@ public class DungeonSceneManager : Manager
         _question = GameDirector.GetQuestionData();
         Question.GetComponent<TextMeshProUGUI>().text = _question.question;
         Source.GetComponent<TextMeshProUGUI>().text = _question.source;
+        SourceAreaAdjust();
         Out.GetComponent<TextMeshProUGUI>().text = _question.output;
         for(int i = 0; i < ChoiceItems.Count; i++){
             ChoiceItems[i].GetComponentInChildren<TextMeshProUGUI>().text = _question.choice[i];
@@ -83,5 +84,14 @@ public class DungeonSceneManager : Manager
     }
     public void FadeMove(){
         Director.GetComponent<GameDirector>().FadeMove(NextSceneName,"DungeonScene");
+    }
+    public void SourceAreaAdjust(){
+        int line_count = _question.source.Length - _question.source.Replace("\n", "").Length;
+        Transform _parent = Source.transform.parent;
+        Vector2 _size = _parent.gameObject.GetComponent<RectTransform>().sizeDelta;
+        if(_size.y < 1000*line_count/18){
+            _size.y = 1000*line_count/18;
+            _parent.gameObject.GetComponent<RectTransform>().sizeDelta = _size;
+        }
     }
 }

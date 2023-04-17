@@ -283,8 +283,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1649004558}
   m_HandleRect: {fileID: 1649004557}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.27423406
+  m_Value: 1
+  m_Size: 0.29092392
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 88.5
+  m_fontSize: 77.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 124.75
+  m_fontSize: 132.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62
+  m_fontSize: 57.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.75
+  m_fontSize: 60.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3943,7 +3943,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 3000}
+  m_SizeDelta: {x: 0, y: 2000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1720026372
 GameObject:
@@ -4239,7 +4239,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 598205634}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.32233933
+  m_Size: 0.5129353
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4551,14 +4551,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#da70d6>#include</color> <color=#ce9178><stdio.h></color>\n\n<color=#358cd6>int</color>
-    fib<color=#ffd700>(</color><color=#358cd6>int</color> n<color=#ffd700>)</color><color=#ffd700>{</color>\n 
-    <color=#c586c0>if</color><color=#ffd700>(</color>n <= 2<color=#ffd700>)</color>
-    <color=#c586c0>return</color> 1;\n  <color=#c586c0>return</color> fib<color=#ffd700>(</color>n-1<color=#ffd700>)</color>
-    + fib<color=#ffd700>(</color>n-2<color=#ffd700>)</color>;\n<color=#ffd700>}</color>\n\n<color=#358cd6>int</color>
-    main<color=#ffd700>(</color><color=#ffd700>)</color><color=#ffd700>{</color>\n 
-    printf<color=#ffd700>(</color><color=#ce9178>\"%d\"</color>,fib<color=#ffd700>(</color>7<color=#ffd700>)</color><color=#ffd700>)</color>;\n 
-    <color=#c586c0>return</color> 0;\n<color=#ffd700>}</color>
+  m_text: "<color=#da70d6>#include</color> <color=#ce9178><stdio.h></color>\r\n<color=#da70d6>#define</color>
+    <color=#ce9178>SIZE<color=#ffd700>(</color>list<color=#ffd700>)</color> <color=#ffd700>(</color>sizeof<color=#ffd700>(</color>list<color=#ffd700>)</color>/sizeof<color=#ffd700>(</color>list<color=#ffd700>[</color>0<color=#ffd700>]</color><color=#ffd700>)</color><color=#ffd700>)</color></color>\r\n\r\n<color=#358cd6>int</color>
+    main<color=#ffd700>(</color><color=#358cd6>int</color> argc, <color=#358cd6>char</color>
+    <color=#358cd6>const</color> *argv<color=#ffd700>[</color><color=#ffd700>]</color><color=#ffd700>)</color>\r\n<color=#ffd700>{</color>\r\n 
+    <color=#358cd6>int</color> i,j,aquatan<color=#ffd700>[</color><color=#ffd700>]</color>
+    = <color=#ffd700>{</color>2,0,1,7<color=#ffd700>}</color>;\r\n  <color=#c586c0>for</color><color=#ffd700>(</color>i
+    = 0;i < SIZE<color=#ffd700>(</color>aquatan<color=#ffd700>)</color>-1;i++<color=#ffd700>)</color><color=#ffd700>{</color>\r\n   
+    <color=#358cd6>int</color> min_index = i;\r\n    <color=#c586c0>for</color><color=#ffd700>(</color>j
+    = i + 1;j < SIZE<color=#ffd700>(</color>aquatan<color=#ffd700>)</color>;j++<color=#ffd700>)</color><color=#ffd700>{</color>\r\n     
+    <color=#c586c0>if</color><color=#ffd700>(</color>aquatan<color=#ffd700>[</color>min_index<color=#ffd700>]</color>
+    > aquatan<color=#ffd700>[</color>j<color=#ffd700>]</color><color=#ffd700>)</color><color=#ffd700>{</color>\r\n       
+    min_index = j;\r\n      <color=#ffd700>}</color>\r\n    <color=#ffd700>}</color>\r\n   
+    <color=#358cd6>int</color> temp = aquatan<color=#ffd700>[</color>i<color=#ffd700>]</color>;\r\n   
+    aquatan<color=#ffd700>[</color>i<color=#ffd700>]</color> = aquatan<color=#ffd700>[</color>min_index<color=#ffd700>]</color>;\r\n   
+    aquatan<color=#ffd700>[</color>min_index<color=#ffd700>]</color> = temp;\r\n 
+    <color=#ffd700>}</color>\r\n  <color=#c586c0>for</color> <color=#ffd700>(</color>i
+    = 0; i < SIZE<color=#ffd700>(</color>aquatan<color=#ffd700>)</color>; i++<color=#ffd700>)</color><color=#ffd700>{</color>\r\n   
+    printf<color=#ffd700>(</color><color=#ce9178>\"%d \"</color>,aquatan<color=#ffd700>[</color>i<color=#ffd700>]</color><color=#ffd700>)</color>;\r\n 
+    <color=#ffd700>}</color>\r\n\r\n  <color=#c586c0>return</color> 0;\r\n<color=#ffd700>}</color>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c19a6a096b8cca34b9f14e0382ea1b74, type: 2}
   m_sharedMaterial: {fileID: -7480283735155744309, guid: c19a6a096b8cca34b9f14e0382ea1b74, type: 2}
