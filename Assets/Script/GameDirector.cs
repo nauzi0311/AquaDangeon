@@ -11,7 +11,8 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     public Fade fade;
     private float _fade_time = 1f;
-    private static string URL = "http://localhost:3000/soft2/";
+    //private static string URL = "http://localhost:3000/soft2/";
+    private static string URL = "https://se.is.kit.ac.jp/beakfish/api/soft2/";
     private static UserData userdata = new UserData();
     private static ScoreData list = new ScoreData();
     private static RankingData ranking = new RankingData();
