@@ -65,13 +65,8 @@ public class HomeSceneManager : Manager
         StartCoroutine(GameDirector.WebRequestPOST("calender",json));
     }
     public IEnumerator ScoreProcess(){
-        #if DEBUG
-            string json = "{\"device\":\"" + PlayerPrefs.GetString("UUID") + "\"," +
-            "\"level\":" + 1 + "}";
-        #else
-            string json = "{\"device\":\"" + PlayerPrefs.GetString("UUID") + "\"," +
-            "\"level\":" + GameDirector.GetUserData().level + "}";
-        #endif
+        string json = "{\"device\":\"" + PlayerPrefs.GetString("UUID") + "\"," +
+        "\"level\":" + GameDirector.GetUserData().level + "}";
         yield return StartCoroutine(GameDirector.WebRequestPOST("score",json));
         Debug.Log(GameDirector.GetResponse());
         GameDirector.SetScoreData(ScoreData.Deserialize<ScoreData>(GameDirector.GetResponse()));
