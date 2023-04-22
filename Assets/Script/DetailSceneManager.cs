@@ -18,15 +18,12 @@ public class DetailSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FadeOut",0.1f);
+        Director.GetComponent<GameDirector>().FadeOut();
         _data = GameDirector.GetDetailData();
         ID.text = _data.id.ToString();
         Question.text = _data.question;
         Source.text = _data.source;
         Out.text = _data.output;
-    }
-    void FadeOut(){
-        Director.GetComponent<GameDirector>().FadeOut();
     }
 
     // Update is called once per frame

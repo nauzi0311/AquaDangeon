@@ -15,12 +15,9 @@ public class ScoreSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FadeOut",0.1f);
+        Director.GetComponent<GameDirector>().FadeOut();
         _data = GameDirector.GetScoreData();
         GenerateList(_data);
-    }
-    void FadeOut(){
-        Director.GetComponent<GameDirector>().FadeOut();
     }
 
     // Update is called once per frame

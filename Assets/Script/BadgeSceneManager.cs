@@ -23,12 +23,8 @@ public class BadgeSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FadeOut",0.1f);
-        GenerateBadgeList();
-    }
-
-    void FadeOut(){
         Director.GetComponent<GameDirector>().FadeOut();
+        GenerateBadgeList();
     }
 
     // Update is called once per frame

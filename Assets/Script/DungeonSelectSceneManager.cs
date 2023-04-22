@@ -8,11 +8,8 @@ public class DungeonSelectSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FadeOut",0.1f);
-        GameDirector.ResetDetailData();
-    }
-    void FadeOut(){
         Director.GetComponent<GameDirector>().FadeOut();
+        GameDirector.ResetDetailData();
     }
 
     // Update is called once per frame

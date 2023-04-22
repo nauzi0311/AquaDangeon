@@ -184,6 +184,9 @@ public class GameDirector : MonoBehaviour
         return response;
     }
     public void FadeOut(){
+        Invoke("fadeout",0.1f);
+    }
+    private void fadeout(){
         fade.FadeOut(_fade_time,() =>{});
     }
     public void FadeMove(string NextSceneName,string NowSceneName = null){
