@@ -23,9 +23,12 @@ public class HomeSceneManager : Manager
         CalenderCanvas = GameObject.Find("CalenderCanvas");
         Calender = GameObject.Find("Calender");
         InvisibleCalender();
-        Director.GetComponent<GameDirector>().FadeOut();
+        Invoke("FadeOut",0.1f);
         CalenderInitialize();
         GameDirector.ResetAllData();
+    }
+    void FadeOut(){
+        Director.GetComponent<GameDirector>().FadeOut();
     }
 
     // Update is called once per frame

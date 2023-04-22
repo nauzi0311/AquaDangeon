@@ -22,7 +22,7 @@ public class DungeonSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Director.GetComponent<GameDirector>().FadeOut();
+        Invoke("FadeOut",0.1f);
         _question = GameDirector.GetQuestionData();
         Question.GetComponent<TextMeshProUGUI>().text = _question.question;
         Source.GetComponent<TextMeshProUGUI>().text = _question.source;
@@ -45,6 +45,9 @@ public class DungeonSceneManager : Manager
         "\nID:" + _question.id +
         "\nQuestion:" + _question.source + 
         "\nAnswer:" + _question.answer);
+    }
+    void FadeOut(){
+        Director.GetComponent<GameDirector>().FadeOut();
     }
 
     // Update is called once per frame

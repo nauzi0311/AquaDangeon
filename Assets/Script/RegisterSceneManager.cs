@@ -15,6 +15,10 @@ public class RegisterSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("FadeOut",0.1f);
+    }
+
+    void FadeOut(){
         Director.GetComponent<GameDirector>().FadeOut();
     }
 

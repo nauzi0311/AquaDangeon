@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 510005888}
   m_Layer: 0
   m_Name: SceneDirector
-  m_TagString: Untagged
+  m_TagString: SceneManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 1162075873}
   m_Layer: 0
   m_Name: GameDirector
-  m_TagString: Untagged
+  m_TagString: GameDirector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

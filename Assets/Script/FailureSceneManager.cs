@@ -17,12 +17,15 @@ public class FailureSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Director.GetComponent<GameDirector>().FadeOut();
+        Invoke("FadeOut",0.1f);
         _data = GameDirector.GetDetailData();
         ID.text = _data.id.ToString();
         Question.text = _data.question;
         Source.text = _data.source.Replace("???",_data.choice[_data.answer-1]);
         Out.text = _data.output.Replace("???",_data.choice[_data.answer-1]);
+    }
+    void FadeOut(){
+        Director.GetComponent<GameDirector>().FadeOut();
     }
 
     // Update is called once per frame

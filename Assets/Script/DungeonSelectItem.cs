@@ -16,21 +16,12 @@ public class DungeonSelectItem : MonoBehaviour
         Manager = GameObject.FindGameObjectWithTag("SceneManager");
         Available = transform.Find("Available").gameObject;
         _userData = GameDirector.GetUserData();
-        // #if DEBUG
-        //     if(times <= 1){
-        //         available = true;
-        //         Color _c = Available.GetComponent<Image>().color;
-        //         _c.a = 0.0f;
-        //         Available.GetComponent<Image>().color = _c; 
-        //     }
-        // #else
-            if(times <= _userData.level){
-                available = true;
-                Color _c = Available.GetComponent<Image>().color;
-                _c.a = 0.0f;
-                Available.GetComponent<Image>().color = _c; 
-            }
-        //#endif
+        if(times <= _userData.level){
+            available = true;
+            Color _c = Available.GetComponent<Image>().color;
+            _c.a = 0.0f;
+            Available.GetComponent<Image>().color = _c; 
+        }
     }
     // Update is called once per frame
     void Update()

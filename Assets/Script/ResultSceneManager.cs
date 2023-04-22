@@ -20,13 +20,16 @@ public class ResultSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Director.GetComponent<GameDirector>().FadeOut();
+        Invoke("FadeOut",0.1f);
         _questions = GameDirector.GetQuestionDataSet();
         string PreSceneName = GameDirector.GetPreSceneName();
         GenerateList();
         if(PreSceneName == "DungeonScene" || PreSceneName == "FailureScene"){
             StartCoroutine(ResultProcess());
         }
+    }
+    void FadeOut(){
+        Director.GetComponent<GameDirector>().FadeOut();
     }
 
     // Update is called once per frame

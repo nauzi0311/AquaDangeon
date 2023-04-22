@@ -18,11 +18,14 @@ public class RankingSceneManager : Manager
     // Start is called before the first frame update
     void Start()
     {
-        Director.GetComponent<GameDirector>().FadeOut();
+        Invoke("FadeOut",0.1f);
         data = GameDirector.GetRankingData();
         UserRank.GetComponent<TextMeshProUGUI>().text = data.count.ToString();
         GenerateRankingList(data);
     }  
+    void FadeOut(){
+        Director.GetComponent<GameDirector>().FadeOut();
+    }
 
     // Update is called once per frame
     void Update()
