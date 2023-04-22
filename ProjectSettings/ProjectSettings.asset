@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: AquaDangeon
+  companyName: se.is.kit.ac.jp
+  productName: AquaDungeon
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -135,9 +135,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.0.0
-  preloadedAssets:
-  - {fileID: 8126573563313002972, guid: 22caaba45855d2845a791d9bc202be86, type: 2}
-  - {fileID: 11400000, guid: fa39c22be1a59524abfa2f2fcb9388ba, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -279,7 +277,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 83ccf97dfb4882d48a7290b1776ec967, type: 3}
+      m_Icon: {fileID: 2800000, guid: b73f39d1d38de5d48bd77d6fef4a3d78, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
