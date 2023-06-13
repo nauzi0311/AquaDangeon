@@ -4551,25 +4551,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=#da70d6>#include</color> <color=#ce9178><stdio.h></color>\r\n<color=#da70d6>#define</color>
-    <color=#ce9178>SIZE<color=#ffd700>(</color>list<color=#ffd700>)</color> <color=#ffd700>(</color>sizeof<color=#ffd700>(</color>list<color=#ffd700>)</color>/sizeof<color=#ffd700>(</color>list<color=#ffd700>[</color>0<color=#ffd700>]</color><color=#ffd700>)</color><color=#ffd700>)</color></color>\r\n\r\n<color=#358cd6>int</color>
-    main<color=#ffd700>(</color><color=#358cd6>int</color> argc, <color=#358cd6>char</color>
-    <color=#358cd6>const</color> *argv<color=#ffd700>[</color><color=#ffd700>]</color><color=#ffd700>)</color>\r\n<color=#ffd700>{</color>\r\n 
-    <color=#358cd6>int</color> i,j,aquatan<color=#ffd700>[</color><color=#ffd700>]</color>
-    = <color=#ffd700>{</color>2,0,1,7<color=#ffd700>}</color>;\r\n  <color=#c586c0>for</color><color=#ffd700>(</color>i
-    = 0;i < SIZE<color=#ffd700>(</color>aquatan<color=#ffd700>)</color>-1;i++<color=#ffd700>)</color><color=#ffd700>{</color>\r\n   
-    <color=#358cd6>int</color> min_index = i;\r\n    <color=#c586c0>for</color><color=#ffd700>(</color>j
-    = i + 1;j < SIZE<color=#ffd700>(</color>aquatan<color=#ffd700>)</color>;j++<color=#ffd700>)</color><color=#ffd700>{</color>\r\n     
-    <color=#c586c0>if</color><color=#ffd700>(</color>aquatan<color=#ffd700>[</color>min_index<color=#ffd700>]</color>
-    > aquatan<color=#ffd700>[</color>j<color=#ffd700>]</color><color=#ffd700>)</color><color=#ffd700>{</color>\r\n       
-    min_index = j;\r\n      <color=#ffd700>}</color>\r\n    <color=#ffd700>}</color>\r\n   
-    <color=#358cd6>int</color> temp = aquatan<color=#ffd700>[</color>i<color=#ffd700>]</color>;\r\n   
-    aquatan<color=#ffd700>[</color>i<color=#ffd700>]</color> = aquatan<color=#ffd700>[</color>min_index<color=#ffd700>]</color>;\r\n   
-    aquatan<color=#ffd700>[</color>min_index<color=#ffd700>]</color> = temp;\r\n 
-    <color=#ffd700>}</color>\r\n  <color=#c586c0>for</color> <color=#ffd700>(</color>i
-    = 0; i < SIZE<color=#ffd700>(</color>aquatan<color=#ffd700>)</color>; i++<color=#ffd700>)</color><color=#ffd700>{</color>\r\n   
-    printf<color=#ffd700>(</color><color=#ce9178>\"%d \"</color>,aquatan<color=#ffd700>[</color>i<color=#ffd700>]</color><color=#ffd700>)</color>;\r\n 
-    <color=#ffd700>}</color>\r\n\r\n  <color=#c586c0>return</color> 0;\r\n<color=#ffd700>}</color>"
+  m_text: <color=#da70d6>#include</color> <color=#ce9178><stdio.h></color>\n<color=#da70d6>#include</color>
+    <color=#ce9178><stdlib.h></color>\n\n<color=#c586c0>typedef</color> <color=#358cd6>struct</color>
+    data DATA;\n<color=#358cd6>struct</color> data<color=#ffd700>{</color>\n  <color=#358cd6>int</color>
+    number;\n  <color=#358cd6>float</color> point;\n  DATA* next;\n<color=#ffd700>}</color>;\n\n<color=#358cd6>void</color>
+    Print<color=#ffd700>(</color>DATA* head<color=#ffd700>)</color><color=#ffd700>{</color>\n 
+    DATA *p;\n  <color=#c586c0>for</color><color=#ffd700>(</color>p = head; p !=
+    <color=#358cd6>NULL</color>; p = p->next<color=#ffd700>)</color><color=#ffd700>{</color>\n   
+    printf<color=#ffd700>(</color><color=#ce9178>\"Num:%d\tPoint:%f\n\"</color>,
+    p->number, p->point<color=#ffd700>)</color>;\n  <color=#ffd700>}</color>\n  fflush<color=#ffd700>(</color>st<color=#c586c0>do</color>ut<color=#ffd700>)</color>;\n<color=#ffd700>}</color>\n\n<color=#358cd6>int</color>
+    main<color=#ffd700>(</color><color=#ffd700>)</color>\n<color=#ffd700>{</color>\n 
+    DATA d1 = <color=#ffd700>{</color>\n    1,10,<color=#358cd6>NULL</color>\n  <color=#ffd700>}</color>,d2
+    = <color=#ffd700>{</color>\n    2,20,&d1\n  <color=#ffd700>}</color>,d3 = <color=#ffd700>{</color>\n   
+    3,30,&d2\n  <color=#ffd700>}</color>;\n  Print<color=#ffd700>(</color><color=#ff0000>???</color><color=#ffd700>)</color>;\n 
+    <color=#c586c0>return</color> 0;\n<color=#ffd700>}</color>\n
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c19a6a096b8cca34b9f14e0382ea1b74, type: 2}
   m_sharedMaterial: {fileID: -7480283735155744309, guid: c19a6a096b8cca34b9f14e0382ea1b74, type: 2}

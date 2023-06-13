@@ -26,7 +26,7 @@ public class ScoreSceneManager : Manager
         
     }
     public void BackButtonOnClick(){
-        string NextSceneName = GameDirector.GetPreSceneName();
+        string NextSceneName = "HomeScene";
         Director.GetComponent<GameDirector>().FadeMove(NextSceneName);
     }
     void GenerateList(ScoreData _data){
