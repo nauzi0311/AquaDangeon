@@ -123,6 +123,7 @@ public class ResultSceneManager : Manager
     }
     public IEnumerator WebRequestPOST(string url, string json){
         yield return GameDirector.WebRequestPOST(url, json);
+        GameDirector.SetDetailData(QuestionData.Deserialize<QuestionData>(GameDirector.GetResponse()));
     }
     public IEnumerator RankingProcess(){
         string json ="{\"device\":\"" + PlayerPrefs.GetString("UUID") + "\"}";
