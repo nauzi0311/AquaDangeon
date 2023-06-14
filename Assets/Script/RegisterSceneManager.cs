@@ -12,10 +12,14 @@ public class RegisterSceneManager : Manager
     GameObject UserName;
     [SerializeField]
     GameObject Password;
+
+    [SerializeField]
+    GameObject ErrorMessage;
     // Start is called before the first frame update
     void Start()
     {
         Director.GetComponent<GameDirector>().FadeOut();
+        ErrorMessage.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,6 +32,10 @@ public class RegisterSceneManager : Manager
         string username = UserName.GetComponent<TMP_InputField>().text;
         string id = Password.GetComponent<TMP_InputField>().text;
         int school_num = int.Parse(SchoolID.GetComponent<TMP_InputField>().text);
+        if(school_num < 10000000 || school_num > 99999999){
+            ErrorMessage.SetActive(true);
+            return;
+        }
         UserData _first = new UserData();
         _first.SetFirstData(school_num);
         GameDirector.SetUserData(_first);
