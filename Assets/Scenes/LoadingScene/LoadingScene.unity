@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u901A\u4FE1\u72B6\u6CC1\u304C\n\u60AA\u304F\u306A\u3063\u3066\u3044\u307E\u3059\u3002\n\u304A\u6642\u9593\u3092\u958B\u3051\u3066\u3001\u5F8C\u307B\u3069\u518D\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002"
+  m_text: "\u901A\u4FE1\u72B6\u6CC1\u304C\n\u60AA\u304F\u306A\u3063\u3066\u3044\u307E\u3059\u3002\n\u304A\u6642\u9593\u3092\u958B\u3051\u3066\u3001\u5F8C\u307B\u3069\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c19a6a096b8cca34b9f14e0382ea1b74, type: 2}
   m_sharedMaterial: {fileID: -7480283735155744309, guid: c19a6a096b8cca34b9f14e0382ea1b74, type: 2}
@@ -478,12 +478,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 36
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 18
+  m_fontSizeMax: 36
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -753,6 +753,7 @@ MonoBehaviour:
   Director: {fileID: 1162075871}
   Loading: {fileID: 1680390823}
   RecommendCanvas: {fileID: 478195460}
+  WebErrorCanvas: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1582,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: -3
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1415992129
 RectTransform:
