@@ -9,6 +9,7 @@ public class LoadingSceneManager : Manager
     [SerializeField] GameObject Loading;
     
     [SerializeField] Canvas RecommendCanvas;
+    [SerializeField] Canvas WebErrorCanvas;
     bool IsStop;
     int user_answer = -2;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class LoadingSceneManager : Manager
     }
 
     IEnumerator ViewProcess(){
+        int load_count = 0;
         IsStop = false;
         TextMeshProUGUI Text = Loading.GetComponent<TextMeshProUGUI>();
         while(!IsStop){
@@ -33,6 +35,10 @@ public class LoadingSceneManager : Manager
                 Text.text = target.Substring(0, target.Length - 3);
             }else{
                 Text.text = target + '.';
+            }
+            load_count++;
+            if(load_count >= 15){
+                WebErrorCanvas.sortingOrder = 3;
             }
             yield return new WaitForSeconds(0.5f);
         }
@@ -62,11 +68,13 @@ public class LoadingSceneManager : Manager
         if(PreSceneName == "RegisterScene"){
             ConfigData _data = ConfigData.Deserialize<ConfigData>(GameDirector.GetResponse());
             GameDirector.SetConfigData(_data);
+            IsStop = true;
             StartCoroutine(GameDirector.SceneMove("HomeScene","TopScene"));
         }
         if(PreSceneName == "DungeonSelectScene"){
             yield return new WaitUntil(() => GameDirector.IsQuestionReady());
             yield return new WaitForSeconds(0.5f);
+            IsStop = true;
             StartCoroutine(GameDirector.SceneMove("DungeonScene"));
         }
         if(PreSceneName == "DungeonScene" || PreSceneName == "FailureScene"){
@@ -85,6 +93,7 @@ public class LoadingSceneManager : Manager
                         }
                         user_answer = -2;
                     }
+                    IsStop = true;
                     StartCoroutine(GameDirector.SceneMove("DungeonScene"));
                     yield break;
                 }
@@ -92,16 +101,19 @@ public class LoadingSceneManager : Manager
                 GameDirector.OneRankDown();
             }
             yield return new WaitForSeconds(3.0f);
+            IsStop = true;
             StartCoroutine(GameDirector.SceneMove("DungeonScene"));
         }
         if(PreSceneName == "ScoreScene"){
             yield return new WaitUntil(() => GameDirector.IsDetailReady());
             yield return new WaitForSeconds(1.0f);
+            IsStop = true;
             StartCoroutine(GameDirector.SceneMove("DetailScene","ScoreScene"));
         }
         if(PreSceneName == "ResultScene"){
             yield return new WaitUntil(() => GameDirector.IsDetailReady());
             yield return new WaitForSeconds(1.0f);
+            IsStop = true;
             StartCoroutine(GameDirector.SceneMove("DetailScene","ResultScene"));
         }
     }
