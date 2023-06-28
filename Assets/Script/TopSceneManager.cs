@@ -9,13 +9,12 @@ public class TopSceneManager : Manager
     [SerializeField] GameObject Tap;
     [SerializeField] int AlertCount;
     [SerializeField] float duration;
-    GameObject VersionCanvas;
+    Canvas VersionCanvas;
     // Start is called before the first frame update
     void Start()
     {
-        VersionCanvas = GameObject.Find("VersionCanvas");
-        VersionCanvas.SetActive(false);
-        PlayerPrefs.SetString("Version","1-0-0");
+        VersionCanvas = GameObject.Find("VersionCanvas").GetComponent<Canvas>();
+        PlayerPrefs.SetString("Version","1-0-5");
         StartCoroutine(CheckVersion());
     }
 
@@ -23,6 +22,9 @@ public class TopSceneManager : Manager
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){
+            if(VersionCanvas.sortingOrder >= 1){
+                return;
+            }
             StartCoroutine(Alert());
         }
     }
@@ -45,7 +47,7 @@ public class TopSceneManager : Manager
             yield return GameDirector.WebRequestPOST("index/version/",json);
             VersionData _data = VersionData.Deserialize<VersionData>(GameDirector.GetResponse());
             if(now_version != _data.version){
-                VersionCanvas.SetActive(true);
+                VersionCanvas.GetComponent<Canvas>().sortingOrder = 2;
                 TextMeshProUGUI Version = VersionCanvas.transform.Find("Version").GetComponent<TextMeshProUGUI>();
                 Version.text += ("\n<u>" + _data.url + "</u>");
             }

@@ -753,7 +753,7 @@ MonoBehaviour:
   Director: {fileID: 1162075871}
   Loading: {fileID: 1680390823}
   RecommendCanvas: {fileID: 478195460}
-  WebErrorCanvas: {fileID: 0}
+  WebErrorCanvas: {fileID: 1415992128}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,7 +1582,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: -3
   m_TargetDisplay: 0
 --- !u!224 &1415992129
 RectTransform:
