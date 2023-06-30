@@ -87,10 +87,12 @@ public class DungeonSceneManager : Manager
     }
     public void SourceAreaAdjust(){
         int line_count = _question.source.Length - _question.source.Replace("\n", "").Length;
+        Debug.Log(line_count);
         Transform _parent = Source.transform.parent;
         Vector2 _size = _parent.gameObject.GetComponent<RectTransform>().sizeDelta;
-        if(_size.y < 1000*line_count/18){
-            _size.y = 1000*line_count/18;
+        //17行分を表示できる
+        if(_size.y < 1000*line_count/17){
+            _size.y = 1000*line_count/17;
             _parent.gameObject.GetComponent<RectTransform>().sizeDelta = _size;
         }
     }

@@ -163,6 +163,12 @@ public class HomeSceneManager : Manager
             GameObject Week = Main.transform.Find(FindName).gameObject;
             for(int j = 0;j < 7;j++){
                 GameObject Day = Week.transform.GetChild(j).Find("Day").gameObject;
+                Debug.Log("i:" + i + " j:" + j + " alpha:" + Day.GetComponent<TextMeshProUGUI>().alpha);
+                if(Day.GetComponent<TextMeshProUGUI>().alpha != 1.0){
+                    Transform Image = Week.transform.GetChild(j).Find("Image");
+                    Image.gameObject.SetActive(false);
+                    continue;
+                }
                 string check = date_until_month + int.Parse(Day.GetComponent<TextMeshProUGUI>().text).ToString("00");
                 if(_userData.date.Contains(check)){
                     Transform Image = Week.transform.GetChild(j).Find("Image");

@@ -26,6 +26,7 @@ public class GameDirector : MonoBehaviour
     private static int QuestionCount = 0;
     private static int now_rank = 3;
     private static int now_times = 0;
+    private static bool Is_update = true;
     public static List<int> id_list = new List<int>();
     public static List<bool> correct_list = new List<bool>();
     public static List<int> second_list = new List<int>();
@@ -160,6 +161,12 @@ public class GameDirector : MonoBehaviour
         "\nexp_list : " + string.Join(",",exp_list.Select(n => n.ToString())) + 
         "\npoint_list : " + string.Join(",",point_list.Select(n => n.ToString())));
     }
+    public static bool GetIs_update(){
+        return Is_update;
+    }
+    public static void SetIs_update(){
+        Is_update = false;
+    }
     //Home Methods
     public static void ResetAllData(){
         questions = new QuestionDataSet();
@@ -175,6 +182,7 @@ public class GameDirector : MonoBehaviour
         user_answer = new List<int>();
         exp_list = new List<int>();
         point_list = new List<int>();
+        Is_update = true;
     }
     //General Methods
     public static string GetPreSceneName(){

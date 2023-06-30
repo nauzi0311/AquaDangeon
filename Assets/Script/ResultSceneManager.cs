@@ -22,10 +22,10 @@ public class ResultSceneManager : Manager
     {
         Director.GetComponent<GameDirector>().FadeOut();
         _questions = GameDirector.GetQuestionDataSet();
-        string PreSceneName = GameDirector.GetPreSceneName();
         GenerateList();
-        if(PreSceneName == "DungeonScene" || PreSceneName == "FailureScene"){
+        if(GameDirector.GetIs_update()){
             StartCoroutine(ResultProcess());
+            GameDirector.SetIs_update();
         }
     }
 
