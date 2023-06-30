@@ -14,7 +14,7 @@ public class TopSceneManager : Manager
     void Start()
     {
         VersionCanvas = GameObject.Find("VersionCanvas").GetComponent<Canvas>();
-        PlayerPrefs.SetString("Version","1-0-5");
+        PlayerPrefs.SetString("Version","1-0-6");
         StartCoroutine(CheckVersion());
     }
 
