@@ -16,6 +16,8 @@ public class ResultSceneManager : Manager
     GameObject ListArea;
     [SerializeField]
     Canvas NewBadgeCanvas;
+    [SerializeField]
+    TextMeshProUGUI DebugArea;
     QuestionDataSet _questions;
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,11 @@ public class ResultSceneManager : Manager
         
     }
     bool UserDataUpdate(){
-        return CalcExpPoint() && AddCorrectList() && AddDate() && BadgeDetect();
+        bool result_calcexp = CalcExpPoint();
+        bool result_addcorrect = AddCorrectList();
+        bool result_adddate = AddDate();
+        bool result_badgeDetect = BadgeDetect();
+        return result_calcexp && result_addcorrect && result_adddate && result_badgeDetect;
     }
     void GenerateList(){
         for(int i = 0; i < GameDirector.correct_list.Count;i++){
@@ -226,6 +232,7 @@ public class ResultSceneManager : Manager
             };
             int i;
             bool ans = false;
+            //ログイン日数のチェック
             for(i = 0;loginCondition[i] <= _data.date.Count;i++);i--;
             while(i >= 0){
                 if(!_data.badge.Contains(loginBadgeID[i--])){
@@ -233,6 +240,7 @@ public class ResultSceneManager : Manager
                     ans = true;
                 }
             }
+            //ログイン連続人数のチェック
             for(i = 0;i < loginLastBadgeID.Count;i++){
                 if(_data.badge.Contains(loginLastBadgeID[i])){
                     continue;
@@ -247,9 +255,13 @@ public class ResultSceneManager : Manager
                 for(int j = 0;j < _data.date.Count;j++){
                     DateTime _check = DateTime.ParseExact(_data.date[j],format,null);
                     _check.AddDays(loginLastCondition[i]-1);
-                    if(_data.date[j + loginLastCondition[i] - 1] == _first.ToString()){
-                        _data.badge.Add(loginLastBadgeID[i]);
-                        ans = true;
+                    if((j + loginLastCondition[i] - 1) < _data.date.Count){
+                        if(_data.date[j + loginLastCondition[i] - 1] == _check.ToString()){
+                            _data.badge.Add(loginLastBadgeID[i]);
+                            ans = true;
+                        }
+                    }else{
+                        break;
                     }
                 }
             }
@@ -270,11 +282,11 @@ public class ResultSceneManager : Manager
             return ans;
         }
 
-        bool new_badge = false,
-        f_badge = FirstBadge(),
-        l_badge = LevelBadge(),
-        qc_badge = QuestionCountBadge(),
-        log_badge = LoginBadge();
+        bool new_badge = false;
+        bool f_badge = FirstBadge();
+        bool l_badge = LevelBadge();
+        bool qc_badge = QuestionCountBadge();
+        bool log_badge = LoginBadge();
         _data.badge.Sort();
         bool AC_badge = AllCollectBadge();
         new_badge = f_badge || l_badge || qc_badge || log_badge || AC_badge;
