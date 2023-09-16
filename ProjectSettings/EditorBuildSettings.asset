@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TopScene/TopScene.unity
+    guid: d3bb8eb78a289784385b569926060ae2
+  - enabled: 1
+    path: Assets/Scenes/RegisterScene/RegisterScene.unity
+    guid: 6952ae342c1ebea43ad8b792ab7572e8
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene/LoadingScene.unity
+    guid: 59d17dfcfda0f0048929a551f7298326
+  - enabled: 1
+    path: Assets/Scenes/ResultScene/ResultScene.unity
+    guid: 52ca9beb1d5f5cf448bc622f5daefab3
+  - enabled: 1
+    path: Assets/Scenes/FailureScene/FailureScene.unity
+    guid: b38bbfecaf6a7154abfea7d6f7070a14
+  - enabled: 1
+    path: Assets/Scenes/HomeScene/HomeScene.unity
+    guid: 41c9a2e5df528d045a79c1cb718eb15e
+  - enabled: 1
+    path: Assets/Scenes/BadgeScene/BadgeScene.unity
+    guid: 8767a85f73c1bac4ca5884ac9f4a0b6f
+  - enabled: 1
+    path: Assets/Scenes/RankingScene/RankingScene.unity
+    guid: d59eaaeffb223044c88fec210f1e9375
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene/ScoreScene.unity
+    guid: 33dbda6b0c86a0c41811441463927770
+  - enabled: 1
+    path: Assets/Scenes/DetailScene/DetailScene.unity
+    guid: b9a9f50bec4f6e846b7cfa11ac8c627b
+  - enabled: 1
+    path: Assets/Scenes/DungeonSelectScene/DungeonSelectScene.unity
+    guid: 27473a2094eabe64782be092ffa0568f
+  - enabled: 1
+    path: Assets/Scenes/DungeonScene/DungeonScene.unity
+    guid: 7c94bddc0ee8e044db3fab968fbdf75f
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 22caaba45855d2845a791d9bc202be86, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 583b305a3a7b03246b7a21335461067f, type: 2}

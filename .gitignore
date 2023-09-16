@@ -1,0 +1,13 @@
+Logs/
+Packages/
+UserSettings/
+Temp/
+release/
+Library/
+.vsco
+*.csproj
+*.sln
+*.apk
+.vscode
+Assets/Font/SourceHanCodeJP-Regular SDF.asset
+Assets/Font/misaki_gothic SDF.asset
