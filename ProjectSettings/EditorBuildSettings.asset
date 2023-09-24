@@ -45,5 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DungeonScene/DungeonScene.unity
     guid: 7c94bddc0ee8e044db3fab968fbdf75f
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 02fd024a8649493479604d5fd98f122e, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 22caaba45855d2845a791d9bc202be86, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: fa39c22be1a59524abfa2f2fcb9388ba, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 583b305a3a7b03246b7a21335461067f, type: 2}
